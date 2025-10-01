@@ -243,7 +243,7 @@ impl<F, T> TryFrom<ResponseRouterData<F, SquareTokenResponse, T, PaymentsRespons
     }
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct SquarePaymentsAmountData {
     amount: i64,
     currency: enums::Currency,
@@ -371,14 +371,14 @@ impl From<SquarePaymentStatus> for enums::AttemptStatus {
     }
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct SquarePaymentsResponseDetails {
     status: SquarePaymentStatus,
     id: String,
     amount_money: SquarePaymentsAmountData,
     reference_id: Option<String>,
 }
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct SquarePaymentsResponse {
     payment: SquarePaymentsResponseDetails,
 }
